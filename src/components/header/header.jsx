@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import logo from '../../img/Frame 9.svg'
-import like from '../../img/Vector (1).svg'
-import order from '../../img/Vecto.svg'
+import like from '../../img/Vector.svg'
+import order from '../../img/Vector (1).svg'
 import './header.scss'
 
 function Header() {
