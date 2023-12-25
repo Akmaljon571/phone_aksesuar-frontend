@@ -38,10 +38,10 @@ function Header() {
                 </li>
             </ul>
             <ul className={!open ? 'category height' : 'category'}>
-                <li>
-                    Erkak Kiyimlari
-                </li>
                 <li className='active'>
+                    All
+                </li>
+                <li>
                     Ekran
                 </li>
                 <li>
