@@ -19,7 +19,7 @@ function Header() {
             <ul>
                 <li>
                     <Link to={'/'}>
-                        <img src={logo} alt="Company Logo" />
+                        <img className='logo' src={logo} alt="Company Logo" />
                     </Link>
                     <p onClick={click}>Category <KeyboardArrowDownIcon /></p>
                 </li>
