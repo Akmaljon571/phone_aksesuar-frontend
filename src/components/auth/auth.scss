@@ -1,0 +1,33 @@
+.auth {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: #fff;
+    margin: 20px auto 0 auto;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    gap: 20px;
+
+    input {
+        padding: 15px;
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid #aaa;
+    }
+
+    button {
+        background-color: #010101;
+        border: none;
+        color: #fff;
+        padding: 20px 10px;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+
+    span {
+        cursor: pointer;
+        color: rgb(0, 179, 255);
+        text-decoration: underline;
+    }
+}

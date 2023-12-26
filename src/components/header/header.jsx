@@ -1,18 +1,31 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Badge from '@mui/material/Badge';
 import logo from '../../img/Frame 9.svg'
 import like from '../../img/Vector.svg'
 import order from '../../img/Vector (1).svg'
 import './header.scss'
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { State, api } from '../../context';
 
 function Header() {
     const [open, setOpen] = useState(false);
+    const [data, setData] = useState([]);
+    const [active, setActive] = useState(0);
+    const { token, user } = useContext(State)
+    const navigate = useNavigate()
 
     const click = () => {
         setOpen(!open)
     }
+
+    useEffect(() => {
+        fetch(api + '/category', {
+            method: 'GET'
+        })
+            .then(re => re.json())
+            .then(data => setData(data))
+    }, []);
 
     return (
         <header className="header">
@@ -24,32 +37,28 @@ function Header() {
                     <p onClick={click}>Category <KeyboardArrowDownIcon /></p>
                 </li>
                 <li>
-                    <Badge badgeContent={0} color="success">
+                    {token ? '' : <a href='/auth'>Login</a>}
+                    <Badge badgeContent={user.like_count} color="success">
                         <Link to={'/like'}>
                             <img src={like} alt="like icon" />
                         </Link>
                     </Badge>
-                    <Badge badgeContent={0} color="primary">
+                    <Badge badgeContent={user.order_count} color="primary">
                         <Link to={'/order'}>
                             <img src={order} alt="like icon" />
-
                         </Link>
                     </Badge>
                 </li>
             </ul>
             <ul className={!open ? 'category height' : 'category'}>
-                <li className='active'>
+                <li onClick={() => { setActive(0); navigate(`category/all`) }} className={active === 0 ? 'active' : ''}>
                     All
                 </li>
-                <li>
-                    Ekran
-                </li>
-                <li>
-                    Iphone
-                </li>
-                <li>
-                    Oyoq kiyimla
-                </li>
+                {data?.length ? data.map(e => (
+                    <li key={e.id} onClick={() => { setActive(0); navigate(`category/${e.id}`) }} className={active === e.id ? 'active' : ''}>
+                        {e.title}
+                    </li>
+                )) : null}
             </ul>
         </header>
     )

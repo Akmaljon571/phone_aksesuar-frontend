@@ -14,6 +14,16 @@
             justify-content: space-between;
             gap: 20px;
 
+            a {
+                color: #101010;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 18px;
+                letter-spacing: 0em;
+                text-align: left;
+                text-decoration: none;
+            }
+
             .logo {
                 margin-left: -12px;
             }

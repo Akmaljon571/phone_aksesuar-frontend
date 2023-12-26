@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Home } from '../page';
-import { Buy, Error, Like, Order } from '../components';
+import { Auth, Buy, Error, Like, Order } from '../components';
 
 function Routers() {
     return (
@@ -9,6 +9,7 @@ function Routers() {
             <Route path='/order' element={<Order />} />
             <Route path='/like' element={<Like />} />
             <Route path='/buy' element={<Buy />} />
+            <Route path='/auth' element={<Auth />} />
             <Route path='/*' element={<Error />} />
         </Routes>
     )

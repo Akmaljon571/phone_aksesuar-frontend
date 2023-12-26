@@ -20,7 +20,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #EAEAEA;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 code {
