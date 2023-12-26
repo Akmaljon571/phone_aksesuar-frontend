@@ -15,6 +15,10 @@
         justify-content: space-between;
 
         .left {
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+
             li {
                 width: 550px;
                 background-color: #fff;
@@ -202,6 +206,44 @@
 
                 }
             }
+        }
+    }
+
+    .error {
+        text-align: center;
+
+        h3 {
+            margin-top: 30px;
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 37px;
+            letter-spacing: 0em;
+            color: #101010;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0em;
+            color: #838383;
+            margin-bottom: 30px;
+        }
+
+        button {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            width: 540px;
+            background-color: #101010;
+            box-shadow: 0px 0px 20px 0px #00000040;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
         }
     }
 }

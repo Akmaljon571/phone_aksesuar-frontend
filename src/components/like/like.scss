@@ -1,0 +1,111 @@
+.like {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    li {
+        width: 550px;
+        background-color: #fff;
+        height: 215px;
+        border-radius: 30px;
+        box-shadow: 0px 0px 20px 0px #0000001A;
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .junior {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+
+            div {
+                width: 125px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                button {
+                    color: #fff !important;
+                    border-radius: 50%;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px;
+                    background-color: #FFCE7F;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #f2a529;
+                    }
+                }
+
+                .no {
+                    background-color: #aaa;
+                    cursor: no-drop;
+
+                    &:hover {
+                        background-color: #aaa;
+                    }
+                }
+
+                span {
+                    font-size: 17px;
+                    font-weight: 600;
+                    line-height: 21px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                }
+            }
+
+            .main {
+                width: 146px;
+                height: 136px;
+            }
+        }
+
+        .middle {
+            margin-left: -100px;
+
+            h3 {
+                font-size: 17px;
+                font-weight: 500;
+                line-height: 21px;
+                letter-spacing: 0em;
+                text-align: left;
+                margin-bottom: 12px;
+            }
+
+            span {
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 18px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #aaa;
+            }
+        }
+
+        .senior {
+            position: relative;
+            height: 100%;
+            width: 100px;
+
+            img {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                cursor: pointer;
+            }
+
+            span {
+                position: absolute;
+                bottom: 5px;
+                right: 2px;
+            }
+        }
+    }
+}
