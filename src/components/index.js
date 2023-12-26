@@ -1,3 +1,4 @@
+import Buy from "./buy/buy";
 import Container from "./container/container";
 import Footer from "./footer/footer";
 import Header from "./header/header";
@@ -7,4 +8,4 @@ import Main from "./main/main";
 import Order from "./order/order";
 import Products from "./products/product";
 
-export { Header, Main, Footer, Container, Hero, Products, Order, Like }
+export { Header, Main, Footer, Container, Hero, Products, Order, Like, Buy }
