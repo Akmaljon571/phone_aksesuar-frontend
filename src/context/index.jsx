@@ -7,10 +7,11 @@ export const api = 'http://127.0.0.1:8000'
 
 export const StatePriveder = ({ children }) => {
     const [user, setUser] = useState({});
+    const [count, setCount] = useState(0);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')) || '');
     let id = 0
     try {
-        id = jwtDecode(JSON.parse(localStorage.getItem('token')))
+        id = jwtDecode(JSON.parse(localStorage.getItem('token')))?.user_id
     } catch (error) {
         id = 0
     }
@@ -29,9 +30,9 @@ export const StatePriveder = ({ children }) => {
                 like_count: 0
             })
         }
-    }, [user_id]);
+    }, [user_id, count]);
 
-    const data = { user, setUser, token, setToken, user_id, setUser_id }
+    const data = { user, setUser, token, setToken, user_id, setUser_id, count, setCount }
 
     return <State.Provider value={data}>{children}</State.Provider>
 }
