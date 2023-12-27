@@ -20,6 +20,7 @@ function HomeProducts() {
                         .then(data => setProducts([...products, data.slice(0, 3)]))
                 ))
             })
+            .catch(err => console.log(err))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user_id]);
 

@@ -15,6 +15,7 @@ function Like() {
             fetch(api + '/like/user/' + user_id)
                 .then(re => re.json())
                 .then(data => setData(data))
+                .catch(err => console.log(err))
         else {
             navigate('/auth')
         }
@@ -32,6 +33,7 @@ function Like() {
                     alert('Hatolik chiqdi')
                 }
             })
+            .catch(err => console.log(err))
     }
 
     return (

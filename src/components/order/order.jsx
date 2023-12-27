@@ -24,6 +24,7 @@ function Order() {
                     setList(data.data)
                     setJami(data.jami)
                 })
+                .catch(err => console.log(err))
         } else {
             navigate('/auth')
         }
@@ -41,6 +42,7 @@ function Order() {
                     alert('Hatolik chiqdi')
                 }
             })
+            .catch(err => console.log(err))
     }
 
     return (
