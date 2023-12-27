@@ -2,17 +2,23 @@ import like from '../../img/like (1).svg'
 import { useContext, useEffect, useState } from 'react';
 import { State, api } from '../../context';
 import { sum } from '../../utils/func';
+import { useNavigate } from 'react-router-dom';
 import './like.scss'
 
 function Like() {
     const [data, setData] = useState([]);
     const { user_id, count, setCount } = useContext(State)
+    const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(api + '/like/user/' + user_id)
-            .then(re => re.json())
-            .then(data => setData(data))
-    }, [user_id]);
+        if (user_id)
+            fetch(api + '/like/user/' + user_id)
+                .then(re => re.json())
+                .then(data => setData(data))
+        else {
+            navigate('/auth')
+        }
+    }, [user_id, navigate]);
 
     const del = (id) => {
         fetch(api + `/like/user/${user_id}/pro/${id}`, {
