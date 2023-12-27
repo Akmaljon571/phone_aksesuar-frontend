@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 function HomeProducts() {
     const [cat, setCat] = useState([]);
-    const { user_id } = useContext(State)
+    const { user_id, count } = useContext(State)
+    const [arr, setArr] = useState([]);
     const [products, setProducts] = useState([]);
     const navigate = useNavigate()
 
@@ -14,15 +15,23 @@ function HomeProducts() {
             .then(re => re.json())
             .then(data => {
                 setCat(data)
-                data.map(e => (
-                    fetch(api + `/product/${e.id}/user/${user_id}/`)
-                        .then(re => re.json())
-                        .then(data => setProducts([...products, data.slice(0, 3)]))
-                ))
+                setProducts([])
             })
             .catch(err => console.log(err))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user_id]);
+
+    useEffect(() => {
+        if (cat.length) {
+            cat.map(e => (
+                fetch(api + `/product/${e.id}/user/${user_id}/`)
+                    .then(re => re.json())
+                    .then(data => {
+                        setProducts([data])
+                    })
+            ))
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [cat, count]);
 
     return (
         <>
@@ -31,7 +40,7 @@ function HomeProducts() {
                     <h3 onClick={() => navigate('/category/' + e.id)} className="title">{e.title}</h3>
                     <ul className="products">
                         {products[i]?.map((prod, index) => (
-                            <Products key={prod.id} id={prod.id} image={prod.image} title={prod.title} price={prod.price} />
+                            <Products key={prod.id} id={prod.id} image={prod.image} title={prod.title} price={prod.price} liked={prod.liked} ordered={prod.ordered} />
                         ))}
                     </ul>
                 </div>
