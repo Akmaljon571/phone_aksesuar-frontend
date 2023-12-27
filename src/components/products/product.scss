@@ -31,9 +31,10 @@
         border-radius: 30px;
 
         .main_img {
-            width: 219px;
+            max-width: 219px;
             height: 237px;
-            margin: 15px 65px;
+            margin: 15px auto;
+            display: block;
         }
 
         .like {

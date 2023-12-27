@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode";
 
 export const State = createContext()
 
-export const api = 'http://127.0.0.1:8000'
+export const api = 'https://akamljon.pythonanywhere.com'
 
 export const StatePriveder = ({ children }) => {
     const [user, setUser] = useState({});
