@@ -18,7 +18,7 @@ function Like() {
         else {
             navigate('/auth')
         }
-    }, [user_id, navigate]);
+    }, [user_id, navigate, count]);
 
     const del = (id) => {
         fetch(api + `/like/user/${user_id}/pro/${id}`, {

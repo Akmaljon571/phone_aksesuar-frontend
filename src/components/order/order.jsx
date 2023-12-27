@@ -27,7 +27,7 @@ function Order() {
         } else {
             navigate('/auth')
         }
-    }, [user_id, navigate]);
+    }, [user_id, navigate, count]);
 
     const del = (id) => {
         fetch(api + `/order/user/${user_id}/pro/${id}`, {
@@ -70,7 +70,7 @@ function Order() {
                                     <span>{sum(e.product?.price)}so'm</span>
                                 </div>
                                 <div className="senior">
-                                    <img onClick={() => del(e.id)} src={delImage} alt="Delete" />
+                                    <img onClick={() => del(e.product.id)} src={delImage} alt="Delete" />
                                     <span>{sum(e.product?.price)}so'm</span>
                                 </div>
                             </li>

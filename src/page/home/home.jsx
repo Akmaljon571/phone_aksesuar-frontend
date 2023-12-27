@@ -1,10 +1,10 @@
-import { Hero, Products } from "../../components";
+import { Hero, HomeProducts } from "../../components";
 
 function Home() {
     return (
         <>
             <Hero />
-            <Products />
+            <HomeProducts />
         </>
     );
 }
