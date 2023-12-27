@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { State, api } from '../../context';
 import { sum } from '../../utils/func';
 import { useNavigate } from 'react-router-dom';
+import error from '../../img/404-page-not-found-illustration-2048x998-yjzeuy4v.png'
 import './like.scss'
 
 function Like() {
@@ -52,7 +53,11 @@ function Like() {
                         <span>{sum(e.pro_id.price)}so'm</span>
                     </div>
                 </li>
-            )) : null}
+            )) : <div style={{ margin: "0 auto" }} className="error">
+                <img style={{ width: '609px' }} src={error} alt="Error Page" />
+                <h3>Sizning Like sahifangiz bosh</h3>
+                <button onClick={() => navigate('/')}>Ortga qaytish</button>
+            </div>}
         </ul>
     );
 }

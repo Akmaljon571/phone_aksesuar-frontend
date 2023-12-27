@@ -52,11 +52,11 @@ function Header() {
                 </li>
             </ul>
             <ul className={!open ? 'category height' : 'category'}>
-                <li onClick={() => { setActive(0); navigate(`category/all`) }} className={active === 0 ? 'active' : ''}>
+                <li onClick={() => { setActive(0); navigate(`/`) }} className={active === 0 ? 'active' : ''}>
                     All
                 </li>
                 {data?.length ? data.map(e => (
-                    <li key={e.id} onClick={() => { setActive(0); navigate(`category/${e.id}`) }} className={active === e.id ? 'active' : ''}>
+                    <li key={e.id} onClick={() => { setActive(0); navigate(`category/${e.title}/${e.id}`) }} className={active === e.id ? 'active' : ''}>
                         {e.title}
                     </li>
                 )) : null}

@@ -38,7 +38,7 @@ function HomeProducts() {
         <>
             {cat.length ? cat.map((e, i) => (
                 <div key={e.id}>
-                    <h3 onClick={() => navigate('/category/' + e.id)} className="title">{e.title}</h3>
+                    <h3 onClick={() => navigate(`/category/${e.title}/${e.id}`)} className="title">{e.title}</h3>
                     <ul className="products">
                         {products.sort((a, b) => a.id - b.id)[i]?.id === e.id ? products.sort((a, b) => a.id - b.id)[i]?.data?.map((prod, index) => (
                             <Products key={prod.id} id={prod.id} image={prod.image} title={prod.title} price={prod.price} liked={prod.liked} ordered={prod.ordered} />
