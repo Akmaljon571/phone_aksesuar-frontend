@@ -45,6 +45,26 @@ function Order() {
             .catch(err => console.log(err))
     }
 
+    const countAdd = (id) => {
+        fetch(api + '/order/add/' + id, {
+            method: "PUT"
+        })
+            .then(re => re.json())
+            .then(data => setCount(count + 1))
+            .catch(err => console.log(err))
+    }
+
+    const countRemove = (id, count) => {
+        if (count > 1) {
+            fetch(api + '/order/depletion/' + id, {
+                method: "PUT"
+            })
+                .then(re => re.json())
+                .then(data => setCount(count + 1))
+                .catch(err => console.log(err))
+        }
+    }
+
     return (
         <div className='order'>
             <h2>Korzina</h2>
@@ -56,13 +76,13 @@ function Order() {
                                 <div className='junior'>
                                     <img className='main' src={api + e.product?.image} alt="Card_product" />
                                     <div>
-                                        <button className='no'>
+                                        <button onClick={() => countRemove(e.id, e.count)} className={e.count <= 1 ? 'no' : ''}>
                                             <RemoveIcon />
                                         </button>
                                         <span>
                                             {e.count}
                                         </span>
-                                        <button>
+                                        <button onClick={() => countAdd(e.id)}>
                                             <AddIcon />
                                         </button>
                                     </div>

@@ -1,18 +1,19 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Badge from '@mui/material/Badge';
 import logo from '../../img/Frame 9.svg'
 import like from '../../img/Vector.svg'
 import order from '../../img/Vector (1).svg'
-import './header.scss'
 import { useContext, useEffect, useState } from 'react';
 import { State, api } from '../../context';
+import './header.scss'
 
 function Header() {
     const [open, setOpen] = useState(false);
     const [data, setData] = useState([]);
-    const [active, setActive] = useState(0);
     const { token, user } = useContext(State)
+    const id = useLocation().pathname.split('/').reverse()[0]
+    const cat = useLocation().pathname.split('/')[1]
     const navigate = useNavigate()
 
     const click = () => {
@@ -52,11 +53,11 @@ function Header() {
                 </li>
             </ul>
             <ul className={!open ? 'category height' : 'category'}>
-                <li onClick={() => { setActive(0); navigate(`/`) }} className={active === 0 ? 'active' : ''}>
+                <li onClick={() => { navigate(`/`) }} className={cat !== 'category' ? 'active' : ''}>
                     All
                 </li>
                 {data?.length ? data.map(e => (
-                    <li key={e.id} onClick={() => { setActive(0); navigate(`category/${e.title}/${e.id}`) }} className={active === e.id ? 'active' : ''}>
+                    <li key={e.id} onClick={() => { navigate(`category/${e.title}/${e.id}`) }} className={Number(id) === e.id ? 'active' : ''}>
                         {e.title}
                     </li>
                 )) : null}

@@ -14,7 +14,7 @@ function Footer() {
             </Link>
             <ul>
                 <li>
-                    Telefon
+                    Samsung
                 </li>
                 <li>
                     Iphone
@@ -25,7 +25,7 @@ function Footer() {
             </ul>
             <ul>
                 <li>
-                    Oyna
+                    Zashita
                 </li>
                 <li>
                     Ekran
